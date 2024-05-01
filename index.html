@@ -9,7 +9,8 @@
   <title>Update</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
   <style>
     .notification-container {
@@ -141,14 +142,23 @@
       </path>
     </svg>
   </div>
-  <button onclick="window.location.href = '/t50-gateway-alpha/'" style="display: none;" id="btn"
-    class="btn">Launch</button>
+  <!--<button onclick="window.location.href = '/t50-gateway-alpha/'" style="display: none;" id="btn"
+    class="btn">Launch</button>-->
 
   <div class="notification-container" id="notification">
     Enabling&nbsp;Evox-Epsilon
   </div>
 
   <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('halt') && urlParams.get('halt') === 'true') {
+      console.log('Stopped');
+    } else {
+      if (localStorage.getItem("merge_done") === "true") {
+        window.location.href = "https://evoxs.xyz"
+      }
+    }
+
     function getAllStorage() {
       var storage = {}; // Object to store key-value pairs
 
@@ -178,9 +188,10 @@
       //notification.classList.add('show');
 
       setTimeout(function () {
+        localStorage.setItem("merge_done", "true")
         //notification.classList.remove('show');
         console.log(localStorageJSON)
-        //window.location.href = `https://evox.kozow.com/t50-gateway-alpha/?localStorage=${localStorageJSON}`
+        window.location.href = `https://evoxs.xyz/t50-gateway-alpha/?merge=${localStorageJSON}`
 
       }, 1500); // 5 seconds
 
