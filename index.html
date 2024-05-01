@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#000" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)">
-  <title>Security Check</title>
+  <title>Update</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
   <style>
     .notification-container {
@@ -48,7 +48,7 @@
       height: 100vh;
       background: radial-gradient(circle, #400000, #000000);
       color: white;
-      font-family: "Source Code Pro", monospace;
+      font-family: "Roboto", monospace;
     }
 
     h1 {
@@ -128,7 +128,7 @@
 </head>
 
 <body>
-  <img id="logo" src="https://evox.kozow.com/t50-gateway-alpha/evox-logo-dark-large.png" alt="Domain Error">
+  <img id="logo" src="https://team50.sytes.net/t50-gateway-alpha/evox-logo-dark-large.png" alt="Domain Error">
   <p id="text">Updating your client.<br>Please Wait..</p>
   <div id="loading-logo" class="loading loading--circle" title="Loading">
     <svg fill="#fff" version="1.1" id="loading-circle" xmlns="http://www.w3.org/2000/svg"
@@ -174,11 +174,11 @@
     console.log("localStorage JSON:", localStorageJSON);
     console.log("sessionStorage JSON:", sessionStorageJSON);
     window.onload = function () {
-      var notification = document.getElementById('notification');
-      notification.classList.add('show');
+      //var notification = document.getElementById('notification');
+      //notification.classList.add('show');
 
       setTimeout(function () {
-        notification.classList.remove('show');
+        //notification.classList.remove('show');
         console.log(localStorageJSON)
         //window.location.href = `https://evox.kozow.com/t50-gateway-alpha/?localStorage=${localStorageJSON}`
 
