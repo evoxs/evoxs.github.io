@@ -160,22 +160,51 @@
     }
 
     function getAllStorage() {
+      var keys = [
+        'New_ID0.92',
+        't50-username',
+        'schedule-sort',
+        't50-email',
+        'rem-email',
+        'account',
+        't50-autologin',
+        't50pswd',
+        'notes-sort',
+        'notifications_seen'
+      ];
+
       var storage = {}; // Object to store key-value pairs
 
-      // Retrieve all keys from localStorage
-      for (var i = 0; i < localStorage.length; i++) {
-        var key = localStorage.key(i); // Get key at index i
-        storage[key] = localStorage.getItem(key); // Store key-value pair
+      // Retrieve specified keys from localStorage
+      for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var value = localStorage.getItem(key);
+        if (value !== null) {
+          storage[key] = value; // Store key-value pair
+        }
       }
 
-      // Retrieve all keys from sessionStorage
-      for (var i = 0; i < sessionStorage.length; i++) {
-        var key = sessionStorage.key(i); // Get key at index i
-        storage[key] = sessionStorage.getItem(key); // Store key-value pair
-      }
-
-      return storage; // Return the object containing all key-value pairs
+      return storage; // Return the object containing specified key-value pairs
     }
+
+
+    //function getAllStorage() {
+    //  var storage = {}; // Object to store key-value pairs
+    //
+    //  // Retrieve all keys from localStorage
+    //  for (var i = 0; i < localStorage.length; i++) {
+    //    var key = localStorage.key(i); // Get key at index i
+    //    storage[key] = localStorage.getItem(key); // Store key-value pair
+    //  }
+    //
+    //  // Retrieve all keys from sessionStorage
+    //  for (var i = 0; i < sessionStorage.length; i++) {
+    //    var key = sessionStorage.key(i); // Get key at index i
+    //    storage[key] = sessionStorage.getItem(key); // Store key-value pair
+    //  }
+    //
+    //  return storage; // Return the object containing all key-value pairs
+    //}
 
     // Convert key-value pairs to JSON strings
     var localStorageJSON = JSON.stringify(getAllStorage(localStorage));
