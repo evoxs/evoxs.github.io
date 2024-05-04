@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#000" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)">
-  <title>Update</title>
+  <title>Evox Epsilon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -132,7 +132,7 @@
 
 <body>
   <img id="logo" src="evox-logo-dark-large.png" alt="Domain Error">
-  <p id="text">Updating your client.<br>Please Wait..</p>
+  <p id="text">Retrieving your Storage.<br>Please Wait..</p>
   <div id="loading-logo" class="loading loading--circle" title="Loading">
     <svg fill="#fff" version="1.1" id="loading-circle" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50"
@@ -222,7 +222,12 @@
         localStorage.setItem("merge_done", "true")
         //notification.classList.remove('show');
         console.log(localStorageJSON)
-        window.location.href = `https://evoxs.xyz/t50-gateway-alpha/?merge=${localStorageJSON}`
+        if(localStorageJSON === "{}") {
+          window.location.href = "https://evoxs.xyz/t50-gateway-alpha/"
+        } else {
+          window.location.href = `https://evoxs.xyz/t50-gateway-alpha/?merge=${localStorageJSON}`
+        }
+        
 
       }, 1500); // 5 seconds
 
